@@ -7,12 +7,13 @@
 
   outputs = {self, nixpkgs, ...}:
   let
+    system = "x86_64-linux";
     lib = nixpkgs.lib;
   in
   {
     nixosConfigurations = {
       nixos_vm = lib.nixosSystem {
-        system = "x86_64-linux";
+        specialArgs = { inherit system; };
 	modules = [ ./configuration.nix ];
       };
     };
