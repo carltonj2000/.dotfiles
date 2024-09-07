@@ -87,6 +87,7 @@
     #  thunderbird
       neovim
     ];
+    shell = pkgs.zsh;
   };
 
   # Install firefox.
@@ -132,4 +133,5 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   virtualisation.docker.enable = true;
+  programs.zsh.enable = true;
 }

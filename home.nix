@@ -73,4 +73,30 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs = {
+    bash = {
+      enable = false;
+      shellAliases = {
+        ll = "ls -l";
+        la = "ls -la";
+        n = "nvim";
+	".." = "cd ..";
+      };
+    };
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      shellAliases = {
+        ll = "ls -l";
+        la = "ls -la";
+        n = "nvim";
+	".." = "cd ..";
+        update = "sudo nixos-build switch .#nixos_vm";
+      };
+    };
+  };
+
 }
