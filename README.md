@@ -1,6 +1,7 @@
 # NixOS Configuration
 
 Run flake via `sudo nixos-rebuild switch --flake .#nixos_vm`.
+Run home-manager via `home-manager switch --flake .`.
 
 Update the lock file to the latest revisions via `nix flake update`.
 The system still needs to be rebuilt after the above command.
