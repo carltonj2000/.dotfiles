@@ -1,5 +1,13 @@
 { config, pkgs, ... }:
-
+let 
+  myAliases = {
+    ll = "ls -l";
+    la = "ls -la";
+    n = "nvim";
+    ".." = "cd ..";
+    update = "sudo nixos-build switch .#nixos_vm";
+  };
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -76,26 +84,15 @@
 
   programs = {
     bash = {
-      enable = false;
-      shellAliases = {
-        ll = "ls -l";
-        la = "ls -la";
-        n = "nvim";
-	".." = "cd ..";
-      };
+      enable = true;
+      shellAliases = myAliases;
     };
     zsh = {
       enable = true;
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      shellAliases = {
-        ll = "ls -l";
-        la = "ls -la";
-        n = "nvim";
-	".." = "cd ..";
-        update = "sudo nixos-build switch .#nixos_vm";
-      };
+      shellAliases = myAliases;
     };
   };
 
