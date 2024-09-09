@@ -26,3 +26,12 @@ The code in this repository was create base off the following.
 - https://gitlab.com/librephoenix/nixos-config
 - https://youtu.be/rEovNpg7J0M?si=dIlqrbHkAeGJupp_
 - https://youtu.be/IiyBeR-Guqw?si=kj5_J3E9fGmYM4yD
+
+## GNOME Setting
+
+Switch ctrl and caps lock via:
+
+```
+gsettings reset org.gnome.desktop.input-sources xkb-options
+gsettings reset org.gnome.desktop.input-sources sources
+```

@@ -54,6 +54,7 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
+    options = "ctrl:swapcaps";
   };
 
   # Enable CUPS to print documents.
@@ -134,4 +135,5 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   virtualisation.docker.enable = true;
   programs.zsh.enable = true;
+  console.useXkbConfig = true;
 }

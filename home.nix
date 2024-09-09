@@ -1,14 +1,9 @@
 { config, pkgs, ... }:
-let 
-  myAliases = {
-    ll = "ls -l";
-    la = "ls -la";
-    n = "nvim";
-    ".." = "cd ..";
-    update = "sudo nixos-build switch .#nixos_vm";
-  };
-in
 {
+  imports = [
+    ./sh.nix
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "carltonj2000";
@@ -81,19 +76,5 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs = {
-    bash = {
-      enable = true;
-      shellAliases = myAliases;
-    };
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-      shellAliases = myAliases;
-    };
-  };
 
 }
